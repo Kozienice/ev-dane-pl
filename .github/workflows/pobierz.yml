@@ -17,8 +17,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -r requirements.txt
-      - run: python pobierz.py
+      - run: pip install -r wymagania.txt
+      - name: polska
+        run: python polska.py
+        continue-on-error: true
+      - name: europa
+        run: python europa.py
+        continue-on-error: true
       - name: zapisz zmiany
         run: |
           git config user.name "github-actions[bot]"
