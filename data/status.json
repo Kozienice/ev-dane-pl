@@ -1,0 +1,170 @@
+{
+  "uruchomienie_utc": "2026-09-29T13:28:51Z",
+  "wersja_skryptu": "0.1-sonda",
+  "zrodla": {
+    "pzpm": {
+      "GET https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje": {
+        "http": 200,
+        "bajty": 86988,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "pliki": [
+        {
+          "plik": "data/raw/pzpm/indeks_eRejestracje.html",
+          "url": "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje",
+          "http": 200,
+          "bajty": 86988,
+          "sha256": "bce4b21c3834388c39942faf8af3a9c7fc4a2e5e6cc31ec570685b14c3899dce",
+          "pobrano_utc": "2026-09-29T13:28:54Z"
+        },
+        {
+          "plik": "data/raw/pzpm/2026-08_tabele.xlsx",
+          "url": "https://www1.pzpm.org.pl/pl/content/download/21894/264478/file/PZPM_eRejestracje - tabele 08.2026.xlsx",
+          "http": 200,
+          "bajty": 209268,
+          "sha256": "a77d06c72165afa3a1a9ff715d5102a371be55aad01a5298610c87ed934fe765",
+          "pobrano_utc": "2026-09-29T13:28:56Z"
+        },
+        {
+          "plik": "data/raw/pzpm/2026-08_tabele.xlsx",
+          "url": "https://www1.pzpm.org.pl/pl/content/download/21894/264478/file/PZPM_eRejestracje - tabele 08.2026.xlsx",
+          "http": 200,
+          "bajty": 209268,
+          "sha256": "a77d06c72165afa3a1a9ff715d5102a371be55aad01a5298610c87ed934fe765",
+          "pobrano_utc": "2026-09-29T13:28:57Z"
+        },
+        {
+          "plik": "data/raw/pzpm/2026-08_informacja.pdf",
+          "url": "https://www1.pzpm.org.pl/pl/content/download/21893/264462/file/PZPM_eRejestracje - informacja prasowa 08.2026.pdf",
+          "http": 200,
+          "bajty": 246333,
+          "sha256": "af5f5db358f4c50b1bc828d2c1919e74def4e894b0c50a553745f7bb0ec659e6",
+          "pobrano_utc": "2026-09-29T13:28:57Z"
+        },
+        {
+          "plik": "data/raw/pzpm/2026-08_informacja.pdf",
+          "url": "https://www1.pzpm.org.pl/pl/content/download/21893/264462/file/PZPM_eRejestracje - informacja prasowa 08.2026.pdf",
+          "http": 200,
+          "bajty": 246333,
+          "sha256": "af5f5db358f4c50b1bc828d2c1919e74def4e894b0c50a553745f7bb0ec659e6",
+          "pobrano_utc": "2026-09-29T13:28:58Z"
+        }
+      ],
+      "strony_miesieczne_znalezione": [
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/STYCZEN-20262",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/LUTY-2026",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/MARZEC-20262",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/KWIECIEN-20262",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/MAJ-20262",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/CZERWIEC-20262",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/LIPIEC-20262",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/SIERPIEN-2026",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/SIERPIEN-2026/eRejestracje-Infografika-PL",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/SIERPIEN-2026/eRejestracje-Informacja-Prasowa-SIERPIEN-2026",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/SIERPIEN-2026/eRejestracje-tabele-SIERPIEN-2026",
+        "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/SIERPIEN-2026/eRejestracje_Infografika_SIERPIEN-2026",
+        "https://www1.pzpm.org.pl/pl/layout/set/print/Elektromobilnosc/eRejestracje/SIERPIEN-2026",
+        "https://www1.pzpm.org.pl/pl/switchlanguage/to/en/Elektromobilnosc/eRejestracje/SIERPIEN-2026",
+        "https://www1.pzpm.org.pl/pl/switchlanguage/to/pl/Elektromobilnosc/eRejestracje/SIERPIEN-2026"
+      ],
+      "GET https://www1.pzpm.org.pl/pl/switchlanguage/to/en/Elektromobilnosc/eRejestracje/SIERPIEN-2026": {
+        "http": 200,
+        "bajty": 61999,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "pliki_2026-08": {
+        "xlsx": [
+          "https://www1.pzpm.org.pl/pl/content/download/21894/264478/file/PZPM_eRejestracje - tabele 08.2026.xlsx",
+          "https://www1.pzpm.org.pl/pl/content/download/21894/264478/file/PZPM_eRejestracje - tabele 08.2026.xlsx"
+        ],
+        "pdf": [
+          "https://www1.pzpm.org.pl/pl/content/download/21892/264454/file/PZPM_eRejestracje - infografika 08.2026.pdf",
+          "https://www1.pzpm.org.pl/pl/content/download/21892/264454/file/PZPM_eRejestracje - infografika 08.2026.pdf",
+          "https://www1.pzpm.org.pl/pl/content/download/21893/264462/file/PZPM_eRejestracje - informacja prasowa 08.2026.pdf",
+          "https://www1.pzpm.org.pl/pl/content/download/21893/264462/file/PZPM_eRejestracje - informacja prasowa 08.2026.pdf",
+          "https://www1.pzpm.org.pl/pl/content/download/21895/264494/file/PZPM_eRejestracje - infografika 08.2026.pdf",
+          "https://www1.pzpm.org.pl/pl/content/download/21895/264494/file/PZPM_eRejestracje - infografika 08.2026.pdf"
+        ]
+      },
+      "GET https://www1.pzpm.org.pl/pl/switchlanguage/to/pl/Elektromobilnosc/eRejestracje/SIERPIEN-2026": {
+        "http": 200,
+        "bajty": 86988,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "GET https://www1.pzpm.org.pl/pl/content/download/21894/264478/file/PZPM_eRejestracje - tabele 08.2026.xlsx": {
+        "http": 200,
+        "bajty": 209268,
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      },
+      "arkusze_2026-08_tabele": [
+        {
+          "arkusz": "Ogółem",
+          "wiersze": 52,
+          "plik": "data/csv/pzpm/2026-08/Ogółem.csv"
+        },
+        {
+          "arkusz": "Osobowe - rankingi",
+          "wiersze": 88,
+          "plik": "data/csv/pzpm/2026-08/Osobowe_-_rankingi.csv"
+        },
+        {
+          "arkusz": "Dostawcze - rankingi",
+          "wiersze": 42,
+          "plik": "data/csv/pzpm/2026-08/Dostawcze_-_rankingi.csv"
+        },
+        {
+          "arkusz": "Jednoślady - rankingi",
+          "wiersze": 33,
+          "plik": "data/csv/pzpm/2026-08/Jednoślady_-_rankingi.csv"
+        },
+        {
+          "arkusz": "Paliwa_Samochody osobowe",
+          "wiersze": 20,
+          "plik": "data/csv/pzpm/2026-08/Paliwa_Samochody_osobowe.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe INDYW",
+          "wiersze": 74,
+          "plik": "data/csv/pzpm/2026-08/Samochody_osobowe_INDYW.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe REGON",
+          "wiersze": 73,
+          "plik": "data/csv/pzpm/2026-08/Samochody_osobowe_REGON.csv"
+        },
+        {
+          "arkusz": "Samochody dostawcze",
+          "wiersze": 65,
+          "plik": "data/csv/pzpm/2026-08/Samochody_dostawcze.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe i dostawcze",
+          "wiersze": 35,
+          "plik": "data/csv/pzpm/2026-08/Samochody_osobowe_i_dostawcze.csv"
+        }
+      ],
+      "GET https://www1.pzpm.org.pl/pl/content/download/21893/264462/file/PZPM_eRejestracje - informacja prasowa 08.2026.pdf": {
+        "http": 200,
+        "bajty": 246333,
+        "content_type": "application/pdf"
+      }
+    },
+    "cepik": {
+      "GET https://api.cepik.gov.pl/slowniki": {
+        "blad": "SSLError: HTTPSConnectionPool(host='api.cepik.gov.pl', port=443): Max retries exceeded with url: /slowniki (Caused by SSLError(SSLError(1, '[SSL: DH_KEY_TOO_SMALL] dh key too small (_ssl.c:1010)')))"
+      }
+    },
+    "cpca": {
+      "GET http://www.cpcaauto.com/": {
+        "http": 403,
+        "bajty": 33,
+        "content_type": "text/html; charset=UTF-8"
+      },
+      "GET https://www.cpcaauto.com/": {
+        "http": 403,
+        "bajty": 33,
+        "content_type": "text/html; charset=UTF-8"
+      }
+    }
+  }
+}
