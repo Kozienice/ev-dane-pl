@@ -1,0 +1,305 @@
+{
+ "uruchomienie_utc": "2026-10-03T15:36:24Z",
+ "wersja_skryptu": "europa_marki 0.1",
+ "kraj": "NL",
+ "zrodlo": "RDW Open Data",
+ "definicje": "nowe = pierwsza rejestracja i pierwsza tenaamstelling w NL w tym samym miesiącu; BEV = jedyne paliwo 'Elektriciteit'",
+ "miesiace": {
+  "2026-01": {
+   "okres": "2026-01",
+   "nowe_osobowe": 27967,
+   "bev": 7022,
+   "udzial_bev": 0.2511,
+   "bez_rekordu_paliwa": 0,
+   "suma_marek_rowna_bev": true,
+   "marka_nie_wieksza_niz_rynek": true,
+   "pokrycie_paliw_ok": true,
+   "zgodnosc": true
+  },
+  "2026-02": {
+   "okres": "2026-02",
+   "nowe_osobowe": 22200,
+   "bev": 6808,
+   "udzial_bev": 0.3067,
+   "bez_rekordu_paliwa": 1,
+   "suma_marek_rowna_bev": true,
+   "marka_nie_wieksza_niz_rynek": true,
+   "pokrycie_paliw_ok": true,
+   "zgodnosc": true
+  },
+  "2026-03": {
+   "okres": "2026-03",
+   "nowe_osobowe": 31309,
+   "bev": 11147,
+   "udzial_bev": 0.356,
+   "bez_rekordu_paliwa": 0,
+   "suma_marek_rowna_bev": true,
+   "marka_nie_wieksza_niz_rynek": true,
+   "pokrycie_paliw_ok": true,
+   "zgodnosc": true
+  },
+  "2026-04": {
+   "okres": "2026-04",
+   "nowe_osobowe": 25508,
+   "bev": 9637,
+   "udzial_bev": 0.3778,
+   "bez_rekordu_paliwa": 2,
+   "suma_marek_rowna_bev": true,
+   "marka_nie_wieksza_niz_rynek": true,
+   "pokrycie_paliw_ok": true,
+   "zgodnosc": true
+  },
+  "2026-05": {
+   "okres": "2026-05",
+   "nowe_osobowe": 29725,
+   "bev": 12380,
+   "udzial_bev": 0.4165,
+   "bez_rekordu_paliwa": 0,
+   "suma_marek_rowna_bev": true,
+   "marka_nie_wieksza_niz_rynek": true,
+   "pokrycie_paliw_ok": true,
+   "zgodnosc": true
+  },
+  "2026-06": {
+   "okres": "2026-06",
+   "nowe_osobowe": 38724,
+   "bev": 17302,
+   "udzial_bev": 0.4468,
+   "bez_rekordu_paliwa": 0,
+   "suma_marek_rowna_bev": true,
+   "marka_nie_wieksza_niz_rynek": true,
+   "pokrycie_paliw_ok": true,
+   "zgodnosc": true
+  },
+  "2026-07": {
+   "okres": "2026-07",
+   "nowe_osobowe": 27743,
+   "bev": 13196,
+   "udzial_bev": 0.4757,
+   "bez_rekordu_paliwa": 0,
+   "suma_marek_rowna_bev": true,
+   "marka_nie_wieksza_niz_rynek": true,
+   "pokrycie_paliw_ok": true,
+   "zgodnosc": true
+  },
+  "2026-08": {
+   "okres": "2026-08",
+   "nowe_osobowe": 26381,
+   "bev": 13039,
+   "udzial_bev": 0.4943,
+   "bez_rekordu_paliwa": 0,
+   "suma_marek_rowna_bev": true,
+   "marka_nie_wieksza_niz_rynek": true,
+   "pokrycie_paliw_ok": true,
+   "zgodnosc": true
+  },
+  "2026-09": {
+   "okres": "2026-09",
+   "nowe_osobowe": 36076,
+   "bev": 19053,
+   "udzial_bev": 0.5281,
+   "bez_rekordu_paliwa": 0,
+   "suma_marek_rowna_bev": true,
+   "marka_nie_wieksza_niz_rynek": true,
+   "pokrycie_paliw_ok": true,
+   "zgodnosc": true
+  }
+ },
+ "log": [
+  {
+   "zrodlo": "pojazdy",
+   "okres": "2026-01",
+   "offset": 0,
+   "http": 200,
+   "bajty": 1088950,
+   "wiersze": 27967
+  },
+  {
+   "zrodlo": "paliwa",
+   "paczka_od": 0,
+   "http": 200,
+   "bajty": 27522
+  },
+  {
+   "zrodlo": "pojazdy",
+   "okres": "2026-02",
+   "offset": 0,
+   "http": 200,
+   "bajty": 861416,
+   "wiersze": 22200
+  },
+  {
+   "zrodlo": "paliwa",
+   "paczka_od": 0,
+   "http": 200,
+   "bajty": 26204
+  },
+  {
+   "zrodlo": "pojazdy",
+   "okres": "2026-03",
+   "offset": 0,
+   "http": 200,
+   "bajty": 1215700,
+   "wiersze": 31309
+  },
+  {
+   "zrodlo": "paliwa",
+   "paczka_od": 0,
+   "http": 200,
+   "bajty": 27160
+  },
+  {
+   "zrodlo": "pojazdy",
+   "okres": "2026-04",
+   "offset": 0,
+   "http": 200,
+   "bajty": 988598,
+   "wiersze": 25508
+  },
+  {
+   "zrodlo": "paliwa",
+   "paczka_od": 0,
+   "http": 200,
+   "bajty": 28613
+  },
+  {
+   "zrodlo": "pojazdy",
+   "okres": "2026-05",
+   "offset": 0,
+   "http": 200,
+   "bajty": 1152497,
+   "wiersze": 29725
+  },
+  {
+   "zrodlo": "paliwa",
+   "paczka_od": 0,
+   "http": 200,
+   "bajty": 27536
+  },
+  {
+   "zrodlo": "pojazdy",
+   "okres": "2026-06",
+   "offset": 0,
+   "http": 200,
+   "bajty": 1499193,
+   "wiersze": 38724
+  },
+  {
+   "zrodlo": "paliwa",
+   "paczka_od": 0,
+   "http": 200,
+   "bajty": 29154
+  },
+  {
+   "zrodlo": "pojazdy",
+   "okres": "2026-07",
+   "offset": 0,
+   "http": 200,
+   "bajty": 1076395,
+   "wiersze": 27743
+  },
+  {
+   "zrodlo": "paliwa",
+   "paczka_od": 0,
+   "http": 200,
+   "bajty": 26428
+  },
+  {
+   "zrodlo": "pojazdy",
+   "okres": "2026-08",
+   "offset": 0,
+   "http": 200,
+   "bajty": 1021488,
+   "wiersze": 26381
+  },
+  {
+   "zrodlo": "paliwa",
+   "paczka_od": 0,
+   "http": 200,
+   "bajty": 28249
+  },
+  {
+   "zrodlo": "pojazdy",
+   "okres": "2026-09",
+   "offset": 0,
+   "http": 200,
+   "bajty": 1397322,
+   "wiersze": 36076
+  },
+  {
+   "zrodlo": "paliwa",
+   "paczka_od": 0,
+   "http": 200,
+   "bajty": 28184
+  }
+ ],
+ "pliki": [
+  {
+   "plik": "data/europa/rdw_nl_bev_marki_2026-01.csv",
+   "sha256": "b9491463ccd617b78209d0feb4761dcfca74d7be542e159357c0d77d6ee31927"
+  },
+  {
+   "plik": "data/europa/rdw_nl_bev_marki_2026-02.csv",
+   "sha256": "a19f8be2dc36d3893323e0571bc23e8cd928b2b5fc3b0b1a3e8469fdf044686e"
+  },
+  {
+   "plik": "data/europa/rdw_nl_bev_marki_2026-03.csv",
+   "sha256": "6f4b8592a3d330cc1ce316df1d244dec005cad944636fe6d2c66cfb70940b125"
+  },
+  {
+   "plik": "data/europa/rdw_nl_bev_marki_2026-04.csv",
+   "sha256": "d12e8123cac6b113e585d9602a69169bd61294762c766fc4e7c36f93853168f7"
+  },
+  {
+   "plik": "data/europa/rdw_nl_bev_marki_2026-05.csv",
+   "sha256": "17ed4f51d79b3a4d7eb091efd61fc97019f5afd9d1ed4aa5748b2db84fe04b1b"
+  },
+  {
+   "plik": "data/europa/rdw_nl_bev_marki_2026-06.csv",
+   "sha256": "f5a2f67963ca0f56c1d2a636ad25e3b3122d00afd3278d3a10b334b2ed94a12a"
+  },
+  {
+   "plik": "data/europa/rdw_nl_bev_marki_2026-07.csv",
+   "sha256": "b5d759338aed0f5789d38ded9f38d266ac28d402e1a2e252609f42ebf3f72cc5"
+  },
+  {
+   "plik": "data/europa/rdw_nl_bev_marki_2026-08.csv",
+   "sha256": "fe908ad968b6396b35baaf6a59e25f7a87bf26506b65b3870843c300487a26ea"
+  },
+  {
+   "plik": "data/europa/rdw_nl_bev_marki_2026-09.csv",
+   "sha256": "be3361fc447850c41e5ce6275d3e221a8cd042424cc38ff96ba6f5b63b484c6c"
+  },
+  {
+   "plik": "data/europa/rdw_nl_bev_marki_ytd_2026.csv",
+   "sha256": "2b58132a52619837ce03ad23e7eaff971caf50959266bfc1d05d3485a6fcc374"
+  }
+ ],
+ "ytd": {
+  "rok": 2026,
+  "miesiace": [
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09"
+  ],
+  "bev_razem": 109584,
+  "top10": [
+   "KIA",
+   "TESLA",
+   "RENAULT",
+   "BMW",
+   "VOLVO",
+   "SKODA",
+   "VOLKSWAGEN",
+   "HYUNDAI",
+   "TOYOTA",
+   "MERCEDES-BENZ"
+  ]
+ }
+}
