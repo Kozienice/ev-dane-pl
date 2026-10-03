@@ -1,5 +1,5 @@
 {
-  "uruchomienie_utc": "2026-09-29T16:40:18Z",
+  "uruchomienie_utc": "2026-10-03T10:27:54Z",
   "wersja_skryptu": "0.2",
   "zrodla": {
     "pzpm": {
@@ -15,7 +15,7 @@
           "http": 200,
           "bajty": 86988,
           "sha256": "bce4b21c3834388c39942faf8af3a9c7fc4a2e5e6cc31ec570685b14c3899dce",
-          "pobrano_utc": "2026-09-29T16:40:21Z"
+          "pobrano_utc": "2026-10-03T10:27:57Z"
         },
         {
           "plik": "data/raw/pzpm/2026-07_tabele.xlsx",
@@ -23,7 +23,7 @@
           "http": 200,
           "bajty": 209166,
           "sha256": "a51a22a88ca2f8733c481007db2276262c5af9b36487dd967e02b2c6535efc79",
-          "pobrano_utc": "2026-09-29T16:40:23Z"
+          "pobrano_utc": "2026-10-03T10:27:59Z"
         },
         {
           "plik": "data/raw/pzpm/2026-07_informacja.pdf",
@@ -31,7 +31,7 @@
           "http": 200,
           "bajty": 242076,
           "sha256": "27ba9027f0a7e5bc678a22060d5dccb2ac331497005f1876c43ac9079df6225e",
-          "pobrano_utc": "2026-09-29T16:40:23Z"
+          "pobrano_utc": "2026-10-03T10:28:00Z"
         },
         {
           "plik": "data/raw/pzpm/2026-08_tabele.xlsx",
@@ -39,7 +39,7 @@
           "http": 200,
           "bajty": 209268,
           "sha256": "a77d06c72165afa3a1a9ff715d5102a371be55aad01a5298610c87ed934fe765",
-          "pobrano_utc": "2026-09-29T16:40:25Z"
+          "pobrano_utc": "2026-10-03T10:28:01Z"
         },
         {
           "plik": "data/raw/pzpm/2026-08_informacja.pdf",
@@ -47,7 +47,7 @@
           "http": 200,
           "bajty": 246333,
           "sha256": "af5f5db358f4c50b1bc828d2c1919e74def4e894b0c50a553745f7bb0ec659e6",
-          "pobrano_utc": "2026-09-29T16:40:25Z"
+          "pobrano_utc": "2026-10-03T10:28:02Z"
         }
       ],
       "strony_miesieczne": {
@@ -246,7 +246,7 @@
           "http": 200,
           "bajty": 62530,
           "sha256": "0bba9323b5274dadc0da9edfa5b3f748fa98c82c94e9b0d366e44ff17a20bb08",
-          "pobrano_utc": "2026-09-29T16:40:28Z"
+          "pobrano_utc": "2026-10-03T10:28:04Z"
         }
       ],
       "fragmenty_z_cenami": 1
