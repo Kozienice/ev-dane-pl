@@ -24,6 +24,12 @@ jobs:
       - name: europa
         run: python europa.py
         continue-on-error: true
+      - name: europa_marki (RDW NL)
+        run: python europa_marki.py
+        continue-on-error: true
+        timeout-minutes: 20
+        env:
+          RDW_APP_TOKEN: ${{ secrets.RDW_APP_TOKEN }}
       - name: zapisz zmiany
         run: |
           git config user.name "github-actions[bot]"
