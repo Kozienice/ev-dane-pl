@@ -1,5 +1,5 @@
 {
- "uruchomienie_utc": "2026-10-10T11:14:19Z",
+ "uruchomienie_utc": "2026-10-17T09:28:46Z",
  "wersja_skryptu": "europa_marki 0.1",
  "kraj": "NL",
  "zrodlo": "RDW Open Data",
@@ -28,8 +28,8 @@
   },
   "2026-08": {
    "okres": "2026-08",
-   "nowe_osobowe": 26381,
-   "bev": 13039,
+   "nowe_osobowe": 26379,
+   "bev": 13038,
    "udzial_bev": 0.4943,
    "bez_rekordu_paliwa": 0,
    "suma_marek_rowna_bev": true,
@@ -55,8 +55,8 @@
    "okres": "2026-08",
    "offset": 0,
    "http": 200,
-   "bajty": 1021488,
-   "wiersze": 26381
+   "bajty": 1021413,
+   "wiersze": 26379
   },
   {
    "zrodlo": "paliwa",
@@ -82,7 +82,7 @@
  "pliki": [
   {
    "plik": "data/europa/rdw_nl_bev_marki_2026-08.csv",
-   "sha256": "fe908ad968b6396b35baaf6a59e25f7a87bf26506b65b3870843c300487a26ea"
+   "sha256": "247de4f1c02ac5820e1399331a3847f0962cd93481ca9b4254f325ab0c07fa26"
   },
   {
    "plik": "data/europa/rdw_nl_bev_marki_2026-09.csv",
@@ -90,7 +90,7 @@
   },
   {
    "plik": "data/europa/rdw_nl_bev_marki_ytd_2026.csv",
-   "sha256": "e30bb8d69a5a4ca8bf31d7badd0586624770c2e3c0a34f9faa5e7a1fe789e5b7"
+   "sha256": "ca165e5a51f57860b64c44723a0da6b5f2de63820d742993034d9e5f59d49dd2"
   }
  ],
  "ytd": {
@@ -106,7 +106,7 @@
    "2026-08",
    "2026-09"
   ],
-  "bev_razem": 109583,
+  "bev_razem": 109582,
   "top10": [
    "KIA",
    "TESLA",
