@@ -1,28 +1,44 @@
 {
-  "uruchomienie_utc": "2026-10-17T09:28:36Z",
+  "uruchomienie_utc": "2026-10-24T09:36:50Z",
   "wersja_skryptu": "europa-0.1-sonda",
   "zrodla": {
     "acea": {
       "GET https://www.acea.auto/files/Press_release_car_registrations_September_2026.pdf": {
-        "http": 404,
-        "bajty": 100429,
-        "content_type": "text/html; charset=UTF-8"
-      },
-      "GET https://www.acea.auto/files/Press_release_car_registrations_August_2026.pdf": {
         "http": 200,
-        "bajty": 331283,
+        "bajty": 356094,
         "content_type": "application/pdf"
       },
       "pliki": [
+        {
+          "plik": "data/europa/acea/acea_2026-09.pdf",
+          "url": "https://www.acea.auto/files/Press_release_car_registrations_September_2026.pdf",
+          "http": 200,
+          "bajty": 356094,
+          "sha256": "da39032b31a6588189b3604dbb7ca92975fe5fd908020720a020242be044f723",
+          "pobrano_utc": "2026-10-24T09:36:51Z"
+        },
         {
           "plik": "data/europa/acea/acea_2026-08.pdf",
           "url": "https://www.acea.auto/files/Press_release_car_registrations_August_2026.pdf",
           "http": 200,
           "bajty": 331283,
           "sha256": "a86d34d9ec3e0e428f995eaca742b05fb4d4e56343d0e203acb3602a103acba2",
-          "pobrano_utc": "2026-10-17T09:28:38Z"
+          "pobrano_utc": "2026-10-24T09:36:52Z"
         }
       ],
+      "tekst_acea_2026-09": {
+        "strony": 6,
+        "tabele_csv": 4,
+        "linie_z_Poland": [
+          "Poland 3,478 4,452 -21.9 4,958 3,357 +47.7 27,361 23,262 +17.6 2,058 1,516 +35.8 15,492 13,821 +12.1 3,007 3,445 -12.7 56,354 49,853 +13.0",
+          "Poland 24,404 25,828 -5.5 41,497 21,965 +88.9 234,140 209,624 +11.7 12,670 12,464 +1.7 130,260 126,539 +2.9 27,526 31,488 -12.6 470,497 427,908 +10.0"
+        ]
+      },
+      "GET https://www.acea.auto/files/Press_release_car_registrations_August_2026.pdf": {
+        "http": 200,
+        "bajty": 331283,
+        "content_type": "application/pdf"
+      },
       "tekst_acea_2026-08": {
         "strony": 6,
         "tabele_csv": 0,
@@ -32,9 +48,9 @@
         ]
       },
       "GET https://www.acea.auto/files/Press_release_car_registrations_July_2026.pdf": {
-        "http": 404,
-        "bajty": 100429,
-        "content_type": "text/html; charset=UTF-8"
+        "http": 202,
+        "bajty": 221,
+        "content_type": "text/html"
       }
     },
     "kba": {
@@ -49,16 +65,16 @@
           "url": "https://www.kba.de/DE/Presse/Pressemitteilungen/Fahrzeugzulassungen/2026/pm35_2026_n_08_26_pm_komplett.html",
           "http": 200,
           "bajty": 345252,
-          "sha256": "62ee4b124b17bfff144fe4f8c1dee036096fb08def39f11baaeed2540541b179",
-          "pobrano_utc": "2026-10-17T09:28:43Z"
+          "sha256": "78685dba2c92aff6c06b9c79511fc79b9d95c4fb78e1e1143c31a9a8edd85cef",
+          "pobrano_utc": "2026-10-24T09:36:56Z"
         },
         {
           "plik": "data/europa/kba/pm34_2026_Antriebe_07_26_komplett.html",
           "url": "https://www.kba.de/DE/Presse/Pressemitteilungen/AlternativeAntriebe/2026/pm34_2026_Antriebe_07_26_komplett.html",
           "http": 200,
           "bajty": 371256,
-          "sha256": "d238dc54d825d0a75373bb7edad9912d1ba4389d5b4f4e360b058d73c4062955",
-          "pobrano_utc": "2026-10-17T09:28:45Z"
+          "sha256": "33d464e9677908abc7b03a3b734b0b0eda1ab56161946ccf81384d38da2ad706",
+          "pobrano_utc": "2026-10-24T09:36:57Z"
         }
       ],
       "tabele_pm35_2026_n_08_26_pm_komplett": 3,
