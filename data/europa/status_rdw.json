@@ -1,5 +1,5 @@
 {
- "uruchomienie_utc": "2026-10-24T09:36:57Z",
+ "uruchomienie_utc": "2026-10-31T10:58:19Z",
  "wersja_skryptu": "europa_marki 0.1",
  "kraj": "NL",
  "zrodlo": "RDW Open Data",
@@ -28,8 +28,8 @@
   },
   "2026-08": {
    "okres": "2026-08",
-   "nowe_osobowe": 26382,
-   "bev": 13041,
+   "nowe_osobowe": 26387,
+   "bev": 13042,
    "udzial_bev": 0.4943,
    "bez_rekordu_paliwa": 0,
    "suma_marek_rowna_bev": true,
@@ -39,7 +39,7 @@
   },
   "2026-09": {
    "okres": "2026-09",
-   "nowe_osobowe": 36075,
+   "nowe_osobowe": 36078,
    "bev": 19053,
    "udzial_bev": 0.5281,
    "bez_rekordu_paliwa": 0,
@@ -55,8 +55,8 @@
    "okres": "2026-08",
    "offset": 0,
    "http": 200,
-   "bajty": 1021542,
-   "wiersze": 26382
+   "bajty": 1021742,
+   "wiersze": 26387
   },
   {
    "zrodlo": "paliwa",
@@ -69,20 +69,20 @@
    "okres": "2026-09",
    "offset": 0,
    "http": 200,
-   "bajty": 1397294,
-   "wiersze": 36075
+   "bajty": 1397410,
+   "wiersze": 36078
   },
   {
    "zrodlo": "paliwa",
    "paczka_od": 0,
    "http": 200,
-   "bajty": 28184
+   "bajty": 28242
   }
  ],
  "pliki": [
   {
    "plik": "data/europa/rdw_nl_bev_marki_2026-08.csv",
-   "sha256": "48a312c1c405311e971a8d08e920d1d100cc2849f1c798caa38d86036ac39a2e"
+   "sha256": "e7f51492a200ff7a2c73022cd7f8ded9a5901da3c6add81ff77b1d99021f24c5"
   },
   {
    "plik": "data/europa/rdw_nl_bev_marki_2026-09.csv",
@@ -90,7 +90,7 @@
   },
   {
    "plik": "data/europa/rdw_nl_bev_marki_ytd_2026.csv",
-   "sha256": "3f6313000ea28e84e54593cc872f4132fb461c9e6733806585298295b333967b"
+   "sha256": "1db89e0c269218e46090346d93130282de46e8d815e6cdeba19f4a10839b3cfc"
   }
  ],
  "ytd": {
@@ -106,7 +106,7 @@
    "2026-08",
    "2026-09"
   ],
-  "bev_razem": 109586,
+  "bev_razem": 109587,
   "top10": [
    "KIA",
    "TESLA",

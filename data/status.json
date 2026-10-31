@@ -1,11 +1,11 @@
 {
-  "uruchomienie_utc": "2026-10-24T09:36:42Z",
+  "uruchomienie_utc": "2026-10-31T10:58:04Z",
   "wersja_skryptu": "0.2",
   "zrodla": {
     "pzpm": {
       "GET https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje": {
         "http": 200,
-        "bajty": 87692,
+        "bajty": 87920,
         "content_type": "text/html; charset=utf-8"
       },
       "pliki": [
@@ -13,9 +13,9 @@
           "plik": "data/raw/pzpm/indeks_eRejestracje.html",
           "url": "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje",
           "http": 200,
-          "bajty": 87692,
-          "sha256": "327918585955f080527f50688c093af532ea597809212a83530fe51607e8b79d",
-          "pobrano_utc": "2026-10-24T09:36:45Z"
+          "bajty": 87920,
+          "sha256": "45cac69319e756fe246931fba53804d5f905ddc3295ecb4205104995eea50853",
+          "pobrano_utc": "2026-10-31T10:58:07Z"
         },
         {
           "plik": "data/raw/pzpm/2026-08_tabele.xlsx",
@@ -23,7 +23,7 @@
           "http": 200,
           "bajty": 209268,
           "sha256": "a77d06c72165afa3a1a9ff715d5102a371be55aad01a5298610c87ed934fe765",
-          "pobrano_utc": "2026-10-24T09:36:46Z"
+          "pobrano_utc": "2026-10-31T10:58:09Z"
         },
         {
           "plik": "data/raw/pzpm/2026-08_informacja.pdf",
@@ -31,7 +31,7 @@
           "http": 200,
           "bajty": 246333,
           "sha256": "af5f5db358f4c50b1bc828d2c1919e74def4e894b0c50a553745f7bb0ec659e6",
-          "pobrano_utc": "2026-10-24T09:36:47Z"
+          "pobrano_utc": "2026-10-31T10:58:09Z"
         },
         {
           "plik": "data/raw/pzpm/2026-09_tabele.xlsx",
@@ -39,7 +39,7 @@
           "http": 200,
           "bajty": 209359,
           "sha256": "334394c8cfd7005016268ba26527e893746a1852d24540336418651462964d8a",
-          "pobrano_utc": "2026-10-24T09:36:48Z"
+          "pobrano_utc": "2026-10-31T10:58:10Z"
         },
         {
           "plik": "data/raw/pzpm/2026-09_informacja.pdf",
@@ -47,7 +47,7 @@
           "http": 200,
           "bajty": 242784,
           "sha256": "f541f04870798c1394e05ef107aa6d854caede89cebdc673b6b15c719bc107c3",
-          "pobrano_utc": "2026-10-24T09:36:48Z"
+          "pobrano_utc": "2026-10-31T10:58:11Z"
         }
       ],
       "strony_miesieczne": {
@@ -63,7 +63,7 @@
       },
       "GET https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/SIERPIEN-20262": {
         "http": 200,
-        "bajty": 87580,
+        "bajty": 87808,
         "content_type": "text/html; charset=utf-8"
       },
       "pliki_2026-08": {
@@ -135,7 +135,7 @@
       },
       "GET https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/WRZESIEN-2026": {
         "http": 200,
-        "bajty": 87692,
+        "bajty": 87920,
         "content_type": "text/html; charset=utf-8"
       },
       "pliki_2026-09": {
@@ -237,7 +237,7 @@
     "orlen_charge": {
       "GET https://orlencharge.pl/cennik": {
         "http": 200,
-        "bajty": 62530,
+        "bajty": 64010,
         "content_type": "text/html; charset=utf-8"
       },
       "pliki": [
@@ -245,12 +245,12 @@
           "plik": "data/raw/orlen/cennik.html",
           "url": "https://orlencharge.pl/cennik",
           "http": 200,
-          "bajty": 62530,
-          "sha256": "0bba9323b5274dadc0da9edfa5b3f748fa98c82c94e9b0d366e44ff17a20bb08",
-          "pobrano_utc": "2026-10-24T09:36:50Z"
+          "bajty": 64010,
+          "sha256": "af8fceaccfdb60b5bd83e5bf06522882f4b1c3279268631e82aee57e1740563e",
+          "pobrano_utc": "2026-10-31T10:58:13Z"
         }
       ],
-      "fragmenty_z_cenami": 1
+      "fragmenty_z_cenami": 7
     }
   }
 }
