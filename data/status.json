@@ -1,11 +1,11 @@
 {
-  "uruchomienie_utc": "2026-10-31T10:58:04Z",
+  "uruchomienie_utc": "2026-11-07T11:47:10Z",
   "wersja_skryptu": "0.2",
   "zrodla": {
     "pzpm": {
       "GET https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje": {
         "http": 200,
-        "bajty": 87920,
+        "bajty": 87530,
         "content_type": "text/html; charset=utf-8"
       },
       "pliki": [
@@ -13,9 +13,9 @@
           "plik": "data/raw/pzpm/indeks_eRejestracje.html",
           "url": "https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje",
           "http": 200,
-          "bajty": 87920,
-          "sha256": "45cac69319e756fe246931fba53804d5f905ddc3295ecb4205104995eea50853",
-          "pobrano_utc": "2026-10-31T10:58:07Z"
+          "bajty": 87530,
+          "sha256": "c6928c721cfcb99e26833b16c4275ae7923c71a1322a19648d327630c8cd373f",
+          "pobrano_utc": "2026-11-07T11:47:13Z"
         },
         {
           "plik": "data/raw/pzpm/2026-08_tabele.xlsx",
@@ -23,7 +23,7 @@
           "http": 200,
           "bajty": 209268,
           "sha256": "a77d06c72165afa3a1a9ff715d5102a371be55aad01a5298610c87ed934fe765",
-          "pobrano_utc": "2026-10-31T10:58:09Z"
+          "pobrano_utc": "2026-11-07T11:47:15Z"
         },
         {
           "plik": "data/raw/pzpm/2026-08_informacja.pdf",
@@ -31,7 +31,7 @@
           "http": 200,
           "bajty": 246333,
           "sha256": "af5f5db358f4c50b1bc828d2c1919e74def4e894b0c50a553745f7bb0ec659e6",
-          "pobrano_utc": "2026-10-31T10:58:09Z"
+          "pobrano_utc": "2026-11-07T11:47:15Z"
         },
         {
           "plik": "data/raw/pzpm/2026-09_tabele.xlsx",
@@ -39,7 +39,7 @@
           "http": 200,
           "bajty": 209359,
           "sha256": "334394c8cfd7005016268ba26527e893746a1852d24540336418651462964d8a",
-          "pobrano_utc": "2026-10-31T10:58:10Z"
+          "pobrano_utc": "2026-11-07T11:47:17Z"
         },
         {
           "plik": "data/raw/pzpm/2026-09_informacja.pdf",
@@ -47,7 +47,7 @@
           "http": 200,
           "bajty": 242784,
           "sha256": "f541f04870798c1394e05ef107aa6d854caede89cebdc673b6b15c719bc107c3",
-          "pobrano_utc": "2026-10-31T10:58:11Z"
+          "pobrano_utc": "2026-11-07T11:47:17Z"
         }
       ],
       "strony_miesieczne": {
@@ -63,7 +63,7 @@
       },
       "GET https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/SIERPIEN-20262": {
         "http": 200,
-        "bajty": 87808,
+        "bajty": 87418,
         "content_type": "text/html; charset=utf-8"
       },
       "pliki_2026-08": {
@@ -135,7 +135,7 @@
       },
       "GET https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje/WRZESIEN-2026": {
         "http": 200,
-        "bajty": 87920,
+        "bajty": 87530,
         "content_type": "text/html; charset=utf-8"
       },
       "pliki_2026-09": {
@@ -231,7 +231,7 @@
     },
     "cepik": {
       "GET https://api.cepik.gov.pl/slowniki": {
-        "blad": "SSLError: HTTPSConnectionPool(host='api.cepik.gov.pl', port=443): Max retries exceeded with url: /slowniki (Caused by SSLError(SSLError(1, '[SSL: DH_KEY_TOO_SMALL] dh key too small (_ssl.c:1010)')))"
+        "blad": "SSLError: HTTPSConnectionPool(host='api.cepik.gov.pl', port=443): Max retries exceeded with url: /slowniki (Caused by SSLError(SSLError(1, '[SSL: DH_KEY_TOO_SMALL] dh key too small (_ssl.c:1011)')))"
       }
     },
     "orlen_charge": {
@@ -247,7 +247,7 @@
           "http": 200,
           "bajty": 64010,
           "sha256": "af8fceaccfdb60b5bd83e5bf06522882f4b1c3279268631e82aee57e1740563e",
-          "pobrano_utc": "2026-10-31T10:58:13Z"
+          "pobrano_utc": "2026-11-07T11:47:19Z"
         }
       ],
       "fragmenty_z_cenami": 7
