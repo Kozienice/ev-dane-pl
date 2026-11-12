@@ -1,5 +1,5 @@
 {
-  "uruchomienie_utc": "2026-11-07T11:47:19Z",
+  "uruchomienie_utc": "2026-11-12T14:01:45Z",
   "wersja_skryptu": "europa-0.1-sonda",
   "zrodla": {
     "acea": {
@@ -20,7 +20,7 @@
           "http": 200,
           "bajty": 356094,
           "sha256": "da39032b31a6588189b3604dbb7ca92975fe5fd908020720a020242be044f723",
-          "pobrano_utc": "2026-11-07T11:47:20Z"
+          "pobrano_utc": "2026-11-12T14:01:46Z"
         },
         {
           "plik": "data/europa/acea/acea_2026-08.pdf",
@@ -28,7 +28,7 @@
           "http": 200,
           "bajty": 331283,
           "sha256": "a86d34d9ec3e0e428f995eaca742b05fb4d4e56343d0e203acb3602a103acba2",
-          "pobrano_utc": "2026-11-07T11:47:21Z"
+          "pobrano_utc": "2026-11-12T14:01:47Z"
         }
       ],
       "tekst_acea_2026-09": {
@@ -65,16 +65,16 @@
           "url": "https://www.kba.de/DE/Presse/Pressemitteilungen/Fahrzeugzulassungen/2026/pm35_2026_n_08_26_pm_komplett.html",
           "http": 200,
           "bajty": 345251,
-          "sha256": "aa2c385f820c01a4b170fd9b1952c4e63fe0543ac491e0a14f9dd7a9fa4ba1c8",
-          "pobrano_utc": "2026-11-07T11:47:24Z"
+          "sha256": "fbe5cc8c3a852b14252a7e003431d9a6aeb47fa8d2f32513d9b87e02a1c71c4b",
+          "pobrano_utc": "2026-11-12T14:01:49Z"
         },
         {
           "plik": "data/europa/kba/pm34_2026_Antriebe_07_26_komplett.html",
           "url": "https://www.kba.de/DE/Presse/Pressemitteilungen/AlternativeAntriebe/2026/pm34_2026_Antriebe_07_26_komplett.html",
           "http": 200,
           "bajty": 371255,
-          "sha256": "bbe723bc7abad92546d33e4ad9d3230e671a7748929003d4cb2061e41dd7848f",
-          "pobrano_utc": "2026-11-07T11:47:25Z"
+          "sha256": "1ee57a397c29c65981171d44809219d755a927050270da70ac4147e519982ed7",
+          "pobrano_utc": "2026-11-12T14:01:50Z"
         }
       ],
       "tabele_pm35_2026_n_08_26_pm_komplett": 3,
