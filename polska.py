@@ -334,9 +334,11 @@ def wiersze_marek(sciezka: Path, marki):
             if any(t.upper() in ("MARKA", "MARKE", "MARKI") for t in teksty):
                 naglowek = " | ".join(str(c).strip() for c in komorki if str(c).strip())
                 continue
-            trafiona = next((m for t in teksty for m, w in wzory if w.match(t.upper())), None)
-            if trafiona:
-                wynik.append([ws.title, nr, trafiona, naglowek] + komorki)
+            trafienie = next(((i, m) for i, c in enumerate(komorki, start=1) if isinstance(c, str)
+                              for m, w in wzory if w.match(c.strip().upper())), None)
+            if trafienie:
+                # kolumna_marki: arkusz moze miec kilka rankingow obok siebie (np. miesiac | narastajaco)
+                wynik.append([ws.title, nr, trafienie[1], trafienie[0], naglowek] + komorki)
     return wynik
 
 
@@ -375,8 +377,8 @@ def pzpm_marki():
         except Exception:
             notuj(z, f"blad_wyciagu_{okres}", traceback.format_exc()[-1500:])
             continue
-        szer = max((len(w) for w in wiersze), default=4)
-        nag = ["arkusz", "wiersz", "marka", "naglowek"] + [f"k{i}" for i in range(1, szer - 3)]
+        szer = max((len(w) for w in wiersze), default=5)
+        nag = ["arkusz", "wiersz", "marka", "kolumna_marki", "naglowek"] + [f"k{i}" for i in range(1, szer - 4)]
         zapisz_csv(TAB / f"pzpm_marki_obserwowane_{okres}.csv", nag,
                    [w + [""] * (szer - len(w)) for w in wiersze])
         notuj(z, f"marki_{okres}", {m: sum(1 for w in wiersze if w[2] == m) for m in MARKI_OBSERWOWANE})

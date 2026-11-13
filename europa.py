@@ -5,7 +5,10 @@ WERSJA 0.2 (2026-11-13)
 - KBA: koniec z adresami zaszytymi na sztywno (pm35 sierpien / pm34 lipiec - starsze komunikaty nie linkuja
   do nowszych, wiec od wrzesnia nic nie przybywalo). Teraz dla 3 ostatnich miesiecy:
   (1) strona statystyki 'Monatliche Neuzulassungen' z filtrem rok/miesiac -> linki do FZ10 i komunikatu prasowego,
-  (2) gdy linku brak: wprost plik FZ10 wg wzoru fz10_RRRR_MM.xlsx (zaobserwowany dla 01.2025; kod HTTP rozstrzyga).
+  (2) gdy linku brak: wprost plik FZ10 wg wzoru fz10_RRRR_MM.xlsx (kod HTTP rozstrzyga).
+      Pomiar 13.11.2026 (przebieg na GitHubie): strona z filtrem zwraca 200, ale bez linkow (tresc dociagana
+      skryptem); wzor bezposredni dziala dla 08, 09 i 10.2026 -> to on jest dzis droga glowna.
+  FZ10 ma kolumny wg napedu (m.in. elektryczne), wiec daje tez rozbicie BEV per marka i model.
   FZ10 = Pkw nach Marken und Modellreihen -> zrzut arkuszy do CSV + wyciag wierszy obserwowanych marek
   do data/europa/kba/kba_marki_obserwowane_<okres>.csv.
   Nie uzywamy wyszukiwarki komunikatow KBA (SiteGlobals/Forms/...): robots.txt jej zabrania.
@@ -198,9 +201,11 @@ def wiersze_marek(sciezka: Path, marki):
             if any(t.upper() in ("MARKA", "MARKE", "MARKI") for t in teksty):
                 naglowek = " | ".join(str(c).strip() for c in komorki if str(c).strip())
                 continue
-            trafiona = next((mk for t in teksty for mk, w in wzory if w.match(t.upper())), None)
-            if trafiona:
-                wynik.append([ws.title, nr, trafiona, naglowek] + komorki)
+            trafienie = next(((i, mk) for i, c in enumerate(komorki, start=1) if isinstance(c, str)
+                              for mk, w in wzory if w.match(c.strip().upper())), None)
+            if trafienie:
+                # kolumna_marki: arkusz moze miec kilka rankingow obok siebie (np. miesiac | narastajaco)
+                wynik.append([ws.title, nr, trafienie[1], trafienie[0], naglowek] + komorki)
     return wynik
 
 
@@ -240,11 +245,11 @@ def kba():
                 xlsx_do_csv(p, OUT / "kba" / f"fz10_{okres}", z)
                 try:
                     wiersze = wiersze_marek(p, MARKI_OBSERWOWANE)
-                    szer = max((len(w) for w in wiersze), default=4)
+                    szer = max((len(w) for w in wiersze), default=5)
                     p_csv = OUT / "kba" / f"kba_marki_obserwowane_{okres}.csv"
                     with p_csv.open("w", newline="", encoding="utf-8") as f:
                         w = csv.writer(f)
-                        w.writerow(["arkusz", "wiersz", "marka", "naglowek"] + [f"k{i}" for i in range(1, szer - 3)])
+                        w.writerow(["arkusz", "wiersz", "marka", "kolumna_marki", "naglowek"] + [f"k{i}" for i in range(1, szer - 4)])
                         w.writerows(x + [""] * (szer - len(x)) for x in wiersze)
                     notuj(z, f"marki_{okres}", {mk: sum(1 for x in wiersze if x[2] == mk) for mk in MARKI_OBSERWOWANE})
                 except Exception:
