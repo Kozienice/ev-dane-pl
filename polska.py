@@ -1,6 +1,16 @@
 """
 polska.py (dawniej pobierz.py) - warstwa pobierania danych dla zadania "EV Polska - przeglad tygodniowy".
 
+WERSJA 0.3 (2026-11-13)
+- NOWE: PZPM "OSOBOWE i DOSTAWCZE" (pierwsze rejestracje WSZYSTKICH marek, wszystkie napedy):
+  2 ostatnie miesiace, plik PZPM_SOiSD_MM_RRRR.xlsx -> zrzut arkuszy do CSV + wyciag wierszy
+  obserwowanych marek (MARKI_OBSERWOWANE, m.in. XPENG) do data/tabele/pzpm_marki_obserwowane_<okres>.csv.
+  Powod: ranking BEV w eRejestracjach ma tylko TOP 10, wiec marki niszowe (XPeng) w nim nie wystepuja.
+  Uklad arkuszy nieznany przed pierwszym przebiegiem -> wyciag 1:1 (caly wiersz + najblizszy naglowek), bez interpretacji.
+- Swiadomie NIE pobieramy: IBRM Samar (regulamin samar.pl par. 5 i 7: zakaz pobierania i rozpowszechniania
+  zawartosci baz danych bez pisemnej zgody; to repozytorium jest publiczne).
+  CEPiK API: proba tygodniowa zostaje, ale 12.11.2026 z GitHuba byl ConnectTimeout.
+
 WERSJA 0.2 (2026-09-29)
 - PZPM eRejestracje: 2 ostatnie miesiace (XLSX + komunikat PDF), zrzut arkuszy do CSV,
   parser rankingow BEV (marki, modele; narastajaco) i arkusza "Ogolem" (miesiac + YTD wg napedu),
@@ -33,12 +43,16 @@ DATA = Path("data")
 RAW = DATA / "raw"
 CSV = DATA / "csv"
 TAB = DATA / "tabele"
-UA = "ev-dane-pl/0.2-polska (+https://github.com/Kozienice/ev-dane-pl)"
+UA = "ev-dane-pl/0.3-polska (+https://github.com/Kozienice/ev-dane-pl)"
 TIMEOUT = 60
+
+# marki wyciagane z rankingow wszystkich marek (PZPM SOiSD); dopisz kolejna marke tutaj
+MARKI_OBSERWOWANE = ["XPENG", "BYD", "LEAPMOTOR", "MG", "OMODA", "JAECOO", "CHERY", "ZEEKR",
+                     "GEELY", "LYNK & CO", "NIO", "POLESTAR", "TESLA"]
 
 status = {
     "uruchomienie_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-    "wersja_skryptu": "0.2",
+    "wersja_skryptu": "0.3",
     "zrodla": {},
 }
 
@@ -283,6 +297,93 @@ def miesiac_z_roznicy(wyniki, z):
     notuj(z, "miesiac_z_roznicy", {"okres": o2, "baza": o1, "razem_wyliczony": razem_d})
 
 
+# ---------------------------------------------------------------- PZPM: wszystkie marki (OSOBOWE i DOSTAWCZE)
+
+SOISD_SEKCJA = BAZA_PZPM + "/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE"
+SOISD_ROK = SOISD_SEKCJA + "/Rok-{rok}"
+
+
+def strony_soisd(html: str, rok: int):
+    """Linki do stron miesiecznych .../OSOBOWE-i-DOSTAWCZE/Rok-<ROK>/<Miesiac>-<ROK>r
+    (zaobserwowane 13.11.2026: Pazdziernik-2026r). Dopuszcza brak 'r' i dopisana cyfre jak w eRejestracjach.
+    Zwraca {nr_miesiaca: pelny_url}."""
+    wynik = {}
+    wzor = (r'href="((?:https?://www1?\.pzpm\.org\.pl)?/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/'
+            rf'OSOBOWE-i-DOSTAWCZE/Rok-{rok}/[^"/?#]+)"')
+    for href in set(re.findall(wzor, html, flags=re.IGNORECASE)):
+        slug = href.rsplit("/", 1)[-1].upper()
+        for i, m in enumerate(MIESIACE, start=1):
+            if re.fullmatch(rf"{m}-{rok}R?\d?", slug):
+                wynik[i] = urljoin(BAZA_PZPM, href)
+    return dict(sorted(wynik.items()))
+
+
+def wiersze_marek(sciezka: Path, marki):
+    """Kazdy wiersz kazdego arkusza, w ktorym komorka tekstowa to nazwa obserwowanej marki - dokladnie
+    albo nazwa + spacja + dalszy tekst (np. model). Wiersz 1:1, z nazwa arkusza, numerem wiersza
+    i najblizszym wczesniejszym wierszem naglowka (komorka 'Marka'/'Marke'). Bez interpretacji kolumn."""
+    from openpyxl import load_workbook
+    wzory = [(m, re.compile(rf"^{re.escape(m)}(\s|$)")) for m in marki]
+    wb = load_workbook(sciezka, data_only=True, read_only=True)
+    wynik = []
+    for ws in wb.worksheets:
+        naglowek = ""
+        for nr, row in enumerate(ws.iter_rows(values_only=True), start=1):
+            komorki = ["" if c is None else c for c in row]
+            teksty = [str(c).strip() for c in komorki if isinstance(c, str) and c.strip()]
+            if any(t.upper() in ("MARKA", "MARKE", "MARKI") for t in teksty):
+                naglowek = " | ".join(str(c).strip() for c in komorki if str(c).strip())
+                continue
+            trafienie = next(((i, m) for i, c in enumerate(komorki, start=1) if isinstance(c, str)
+                              for m, w in wzory if w.match(c.strip().upper())), None)
+            if trafienie:
+                # kolumna_marki: arkusz moze miec kilka rankingow obok siebie (np. miesiac | narastajaco)
+                wynik.append([ws.title, nr, trafienie[1], trafienie[0], naglowek] + komorki)
+    return wynik
+
+
+def pzpm_marki():
+    z = "pzpm_soisd"
+    s = sesja()
+    rok = datetime.now(timezone.utc).year
+    strony = {}
+    for url in (SOISD_SEKCJA, SOISD_ROK.format(rok=rok - 1), SOISD_ROK.format(rok=rok)):
+        r = get(s, url, z)
+        if r is None or r.status_code != 200:
+            continue
+        for rr in (rok - 1, rok):
+            for nr, u in strony_soisd(r.text, rr).items():
+                strony[(rr, nr)] = u
+    notuj(z, "strony_miesieczne", {f"{r}-{m:02d}": u for (r, m), u in sorted(strony.items())})
+
+    for (rr, nr), url in sorted(strony.items())[-2:]:
+        okres = f"{rr}-{nr:02d}"
+        rs = get(s, url, z)
+        if rs is None or rs.status_code != 200:
+            continue
+        xlsx = sorted({urljoin(url, h) for h in re.findall(r'href="([^"]+\.xlsx)"', rs.text)})
+        notuj(z, f"pliki_{okres}", xlsx)
+        wybrany = next((u for u in xlsx if "soisd" in u.lower()), xlsx[0] if xlsx else None)
+        if wybrany is None:
+            continue
+        rx = get(s, wybrany, z)
+        if rx is None or rx.status_code != 200 or rx.content[:2] != b"PK":
+            continue
+        p = RAW / "pzpm_soisd" / f"{okres}_SOiSD.xlsx"
+        zapisz(p, rx.content, z, wybrany, rx.status_code)
+        xlsx_do_csv(p, CSV / "pzpm_soisd" / okres, z)
+        try:
+            wiersze = wiersze_marek(p, MARKI_OBSERWOWANE)
+        except Exception:
+            notuj(z, f"blad_wyciagu_{okres}", traceback.format_exc()[-1500:])
+            continue
+        szer = max((len(w) for w in wiersze), default=5)
+        nag = ["arkusz", "wiersz", "marka", "kolumna_marki", "naglowek"] + [f"k{i}" for i in range(1, szer - 4)]
+        zapisz_csv(TAB / f"pzpm_marki_obserwowane_{okres}.csv", nag,
+                   [w + [""] * (szer - len(w)) for w in wiersze])
+        notuj(z, f"marki_{okres}", {m: sum(1 for w in wiersze if w[2] == m) for m in MARKI_OBSERWOWANE})
+
+
 # ---------------------------------------------------------------- CEPiK (sonda tygodniowa)
 
 def cepik():
@@ -312,7 +413,7 @@ def orlen():
 # ---------------------------------------------------------------- main
 
 def main():
-    for nazwa, f in (("pzpm", pzpm), ("cepik", cepik), ("orlen_charge", orlen)):
+    for nazwa, f in (("pzpm", pzpm), ("pzpm_soisd", pzpm_marki), ("cepik", cepik), ("orlen_charge", orlen)):
         try:
             f()
         except Exception:
