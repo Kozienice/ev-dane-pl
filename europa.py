@@ -1,6 +1,15 @@
 """
 europa.py - warstwa pobierania danych EUROPEJSKICH dla zadania "EV Polska - przeglad tygodniowy".
 
+WERSJA 0.2 (2026-11-13)
+- KBA: koniec z adresami zaszytymi na sztywno (pm35 sierpien / pm34 lipiec - starsze komunikaty nie linkuja
+  do nowszych, wiec od wrzesnia nic nie przybywalo). Teraz dla 3 ostatnich miesiecy:
+  (1) strona statystyki 'Monatliche Neuzulassungen' z filtrem rok/miesiac -> linki do FZ10 i komunikatu prasowego,
+  (2) gdy linku brak: wprost plik FZ10 wg wzoru fz10_RRRR_MM.xlsx (zaobserwowany dla 01.2025; kod HTTP rozstrzyga).
+  FZ10 = Pkw nach Marken und Modellreihen -> zrzut arkuszy do CSV + wyciag wierszy obserwowanych marek
+  do data/europa/kba/kba_marki_obserwowane_<okres>.csv.
+  Nie uzywamy wyszukiwarki komunikatow KBA (SiteGlobals/Forms/...): robots.txt jej zabrania.
+
 WERSJA 0.1 (2026-09-29) = SONDA. Zapisuje SUROWE pliki i ich tekst; parsery tabel powstana po obejrzeniu.
 Zrodla:
 - ACEA: miesieczny komunikat PDF o rejestracjach nowych samochodow (UE + EFTA + UK, per kraj, BEV).
@@ -24,19 +33,25 @@ import sys
 import traceback
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urlencode, urljoin
 
 import requests
 
 OUT = Path("data") / "europa"
-UA = "ev-dane-pl/0.1-europa (+https://github.com/Kozienice/ev-dane-pl)"
+UA = "ev-dane-pl/0.2-europa (+https://github.com/Kozienice/ev-dane-pl)"
 TIMEOUT = 60
 MIESIACE_EN = ["January", "February", "March", "April", "May", "June",
                "July", "August", "September", "October", "November", "December"]
+MIESIACE_DE = ["Januar", "Februar", "März", "April", "Mai", "Juni",
+               "Juli", "August", "September", "Oktober", "November", "Dezember"]
+
+# marki wyciagane z FZ10 (KBA); dopisz kolejna marke tutaj
+MARKI_OBSERWOWANE = ["XPENG", "BYD", "LEAPMOTOR", "MG", "OMODA", "JAECOO", "CHERY", "ZEEKR",
+                     "GEELY", "LYNK & CO", "NIO", "POLESTAR", "TESLA"]
 
 status = {
     "uruchomienie_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-    "wersja_skryptu": "europa-0.1-sonda",
+    "wersja_skryptu": "europa-0.2",
     "zrodla": {},
 }
 
@@ -123,10 +138,70 @@ def acea():
 
 # ---------------------------------------------------------------- KBA
 
-KBA_START = [
-    "https://www.kba.de/DE/Presse/Pressemitteilungen/Fahrzeugzulassungen/2026/pm35_2026_n_08_26_pm_komplett.html",
-    "https://www.kba.de/DE/Presse/Pressemitteilungen/AlternativeAntriebe/2026/pm34_2026_Antriebe_07_26_komplett.html",
-]
+KBA_BAZA = "https://www.kba.de"
+KBA_MONATLICH = KBA_BAZA + "/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html"
+KBA_FZ10 = KBA_BAZA + "/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_{r}_{m:02d}.xlsx?__blob=publicationFile"
+
+
+def czysty_href(h: str, baza: str) -> str:
+    """&amp; -> &, bez ';jsessionid', bez kotwicy; parametry ?nn=... odciete dla stron HTML (nie dla plikow)."""
+    h = h.replace("&amp;", "&").split(";")[0].split("#")[0]
+    if ".html" in h:
+        h = h.split("?")[0]
+    return urljoin(baza, h)
+
+
+def linki_kba(html: str, r: int, m: int):
+    """Z HTML wybiera linki TEGO miesiaca: FZ10 (fz10_RRRR_MM.xlsx), komunikat o rejestracjach
+    (pmNN_RRRR_n_MM_RR_pm_komplett.html) i komunikat o napedach alternatywnych (..._Antriebe_MM_RR_komplett.html)."""
+    rr, mm = f"{r % 100:02d}", f"{m:02d}"
+    wynik = {"fz10": [], "komunikaty": []}
+    for h in re.findall(r'href="([^"]+)"', html):
+        if re.search(rf"fz10_{r}_{mm}\.xlsx", h, re.IGNORECASE):
+            wynik["fz10"].append(czysty_href(h, KBA_BAZA))
+        elif re.search(rf"pm\d+_{r}_n_{mm}_{rr}_pm_komplett\.html|_Antriebe_{mm}_{rr}_komplett\.html", h):
+            wynik["komunikaty"].append(czysty_href(h, KBA_BAZA))
+    return {k: sorted(set(v)) for k, v in wynik.items()}
+
+
+def xlsx_do_csv(sciezka: Path, katalog: Path, z: str):
+    """Zrzut KAZDEGO arkusza do CSV 1:1 (bez interpretacji)."""
+    from openpyxl import load_workbook
+    try:
+        wb = load_workbook(sciezka, data_only=True, read_only=True)
+        arkusze = []
+        for ws in wb.worksheets:
+            nazwa = re.sub(r"[^\w\-]+", "_", ws.title)[:60]
+            wiersze = [["" if v is None else v for v in row] for row in ws.iter_rows(values_only=True)]
+            out = katalog / f"{nazwa}.csv"
+            out.parent.mkdir(parents=True, exist_ok=True)
+            with out.open("w", newline="", encoding="utf-8") as f:
+                csv.writer(f).writerows(wiersze)
+            arkusze.append({"arkusz": ws.title, "wiersze": len(wiersze), "plik": str(out)})
+        notuj(z, f"arkusze_{sciezka.stem}", arkusze)
+    except Exception as e:
+        notuj(z, f"blad_xlsx_{sciezka.stem}", f"{type(e).__name__}: {e}"[:500])
+
+
+def wiersze_marek(sciezka: Path, marki):
+    """Jak w polska.py: wiersze z komorka = marka (albo marka + spacja + dalszy tekst), 1:1,
+    z nazwa arkusza, numerem wiersza i najblizszym naglowkiem ('Marke'/'Marka')."""
+    from openpyxl import load_workbook
+    wzory = [(mk, re.compile(rf"^{re.escape(mk)}(\s|$)")) for mk in marki]
+    wb = load_workbook(sciezka, data_only=True, read_only=True)
+    wynik = []
+    for ws in wb.worksheets:
+        naglowek = ""
+        for nr, row in enumerate(ws.iter_rows(values_only=True), start=1):
+            komorki = ["" if c is None else c for c in row]
+            teksty = [str(c).strip() for c in komorki if isinstance(c, str) and c.strip()]
+            if any(t.upper() in ("MARKA", "MARKE", "MARKI") for t in teksty):
+                naglowek = " | ".join(str(c).strip() for c in komorki if str(c).strip())
+                continue
+            trafiona = next((mk for t in teksty for mk, w in wzory if w.match(t.upper())), None)
+            if trafiona:
+                wynik.append([ws.title, nr, trafiona, naglowek] + komorki)
+    return wynik
 
 
 def html_tabele_do_csv(html: str, baza: Path, z: str):
@@ -148,25 +223,43 @@ def html_tabele_do_csv(html: str, baza: Path, z: str):
 def kba():
     z = "kba"
     s = sesja()
-    do_pobrania, widziane = list(KBA_START), set()
-    # z pobranych stron dobierz linki do nowszych komunikatow tego samego typu (maks. 6 stron)
-    while do_pobrania and len(widziane) < 6:
-        url = do_pobrania.pop(0)
-        if url in widziane:
-            continue
-        widziane.add(url)
-        odp = get(s, url, z)
-        if odp is None or odp.status_code != 200:
-            continue
-        nazwa = re.sub(r"[^\w\-]+", "_", url.rsplit("/", 1)[-1].replace(".html", ""))[:80]
-        baza = OUT / "kba" / nazwa
-        zapisz(baza.with_suffix(".html"), odp.content, z, url, odp.status_code)
-        html_tabele_do_csv(odp.text, baza, z)
-        for h in re.findall(r'href="([^"]+(?:Antriebe_|_n_)\d\d_\d\d[^"]*komplett\.html)"', odp.text):
-            pelny = urljoin(url, h.split(";")[0])
-            if pelny not in widziane and pelny not in do_pobrania:
-                do_pobrania.append(pelny)
-    notuj(z, "strony_odwiedzone", sorted(widziane))
+    for r, m in ostatnie_miesiace(3):
+        okres = f"{r}-{m:02d}"
+        # (1) strona statystyki z filtrem miesiaca -> linki FZ10 i komunikatow tego miesiaca
+        filtr = urlencode({"yearFilter": r, "monthFilter": f"{m:02d}_{MIESIACE_DE[m - 1]}"})
+        odp = get(s, f"{KBA_MONATLICH}?{filtr}", z)
+        linki = linki_kba(odp.text, r, m) if odp is not None and odp.status_code == 200 else {"fz10": [], "komunikaty": []}
+        notuj(z, f"linki_{okres}", linki)
+
+        # (2) FZ10: link ze strony, a gdy go brak - wprost wg wzoru (kod HTTP rozstrzyga)
+        for url in linki["fz10"] + [KBA_FZ10.format(r=r, m=m)]:
+            rx = get(s, url, z)
+            if rx is not None and rx.status_code == 200 and rx.content[:2] == b"PK":
+                p = OUT / "kba" / f"fz10_{okres}.xlsx"
+                zapisz(p, rx.content, z, url, rx.status_code)
+                xlsx_do_csv(p, OUT / "kba" / f"fz10_{okres}", z)
+                try:
+                    wiersze = wiersze_marek(p, MARKI_OBSERWOWANE)
+                    szer = max((len(w) for w in wiersze), default=4)
+                    p_csv = OUT / "kba" / f"kba_marki_obserwowane_{okres}.csv"
+                    with p_csv.open("w", newline="", encoding="utf-8") as f:
+                        w = csv.writer(f)
+                        w.writerow(["arkusz", "wiersz", "marka", "naglowek"] + [f"k{i}" for i in range(1, szer - 3)])
+                        w.writerows(x + [""] * (szer - len(x)) for x in wiersze)
+                    notuj(z, f"marki_{okres}", {mk: sum(1 for x in wiersze if x[2] == mk) for mk in MARKI_OBSERWOWANE})
+                except Exception:
+                    notuj(z, f"blad_wyciagu_{okres}", traceback.format_exc()[-1500:])
+                break
+
+        # (3) komunikaty prasowe tego miesiaca (tabele HTML 1:1, jak w wersji 0.1)
+        for url in linki["komunikaty"]:
+            odp = get(s, url, z)
+            if odp is None or odp.status_code != 200:
+                continue
+            nazwa = re.sub(r"[^\w\-]+", "_", url.rsplit("/", 1)[-1].replace(".html", ""))[:80]
+            baza = OUT / "kba" / nazwa
+            zapisz(baza.with_suffix(".html"), odp.content, z, url, odp.status_code)
+            html_tabele_do_csv(odp.text, baza, z)
 
 
 # ---------------------------------------------------------------- main
