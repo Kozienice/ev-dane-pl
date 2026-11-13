@@ -1,5 +1,5 @@
 {
-  "uruchomienie_utc": "2026-11-13T18:43:49Z",
+  "uruchomienie_utc": "2026-11-13T18:50:28Z",
   "wersja_skryptu": "0.3",
   "zrodla": {
     "pzpm": {
@@ -15,7 +15,7 @@
           "http": 200,
           "bajty": 89861,
           "sha256": "5843c2d815859e57293cab2543bf44acdc0ca6174e7f907fa04e731de677d16c",
-          "pobrano_utc": "2026-11-13T18:43:52Z"
+          "pobrano_utc": "2026-11-13T18:50:31Z"
         },
         {
           "plik": "data/raw/pzpm/2026-09_tabele.xlsx",
@@ -23,7 +23,7 @@
           "http": 200,
           "bajty": 209359,
           "sha256": "334394c8cfd7005016268ba26527e893746a1852d24540336418651462964d8a",
-          "pobrano_utc": "2026-11-13T18:43:54Z"
+          "pobrano_utc": "2026-11-13T18:50:33Z"
         },
         {
           "plik": "data/raw/pzpm/2026-09_informacja.pdf",
@@ -31,7 +31,7 @@
           "http": 200,
           "bajty": 242784,
           "sha256": "f541f04870798c1394e05ef107aa6d854caede89cebdc673b6b15c719bc107c3",
-          "pobrano_utc": "2026-11-13T18:43:55Z"
+          "pobrano_utc": "2026-11-13T18:50:33Z"
         },
         {
           "plik": "data/raw/pzpm/2026-10_tabele.xlsx",
@@ -39,7 +39,7 @@
           "http": 200,
           "bajty": 209519,
           "sha256": "b250e1e5507f9fee9b3936550b8a7fa7cfd52c7ab045c3dc235731e4840415f2",
-          "pobrano_utc": "2026-11-13T18:43:56Z"
+          "pobrano_utc": "2026-11-13T18:50:34Z"
         },
         {
           "plik": "data/raw/pzpm/2026-10_informacja.pdf",
@@ -47,7 +47,7 @@
           "http": 200,
           "bajty": 243052,
           "sha256": "c98bf7737c46d17834f39e02c74d7cb3c377d74cf69292776671d45b11b397b4",
-          "pobrano_utc": "2026-11-13T18:43:57Z"
+          "pobrano_utc": "2026-11-13T18:50:35Z"
         }
       ],
       "strony_miesieczne": {
@@ -278,7 +278,7 @@
           "http": 200,
           "bajty": 92922,
           "sha256": "04fcf7686647e1e1b9cd3997f79bcdda305dfaa8fcb0efbdd97420da4f9a79a8",
-          "pobrano_utc": "2026-11-13T18:44:07Z"
+          "pobrano_utc": "2026-11-13T18:50:45Z"
         },
         {
           "plik": "data/raw/pzpm_soisd/2026-10_SOiSD.xlsx",
@@ -286,7 +286,7 @@
           "http": 200,
           "bajty": 92762,
           "sha256": "7f9a943fff41ea5556a0e5d8f4db25b759e35a611514c114ea6f5ce4f77c4e8f",
-          "pobrano_utc": "2026-11-13T18:44:09Z"
+          "pobrano_utc": "2026-11-13T18:50:46Z"
         }
       ],
       "arkusze_2026-09_SOiSD": [
@@ -399,7 +399,7 @@
     },
     "cepik": {
       "GET https://api.cepik.gov.pl/slowniki": {
-        "blad": "ConnectTimeout: HTTPSConnectionPool(host='api.cepik.gov.pl', port=443): Max retries exceeded with url: /slowniki (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.cepik.gov.pl', port=443) at 0x7aff154852b0>, 'Connection to api.cepik.gov.pl timed out. (connect timeout=60)'))"
+        "blad": "ConnectTimeout: HTTPSConnectionPool(host='api.cepik.gov.pl', port=443): Max retries exceeded with url: /slowniki (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.cepik.gov.pl', port=443) at 0x757e0eac9370>, 'Connection to api.cepik.gov.pl timed out. (connect timeout=60)'))"
       }
     },
     "orlen_charge": {
@@ -415,7 +415,7 @@
           "http": 200,
           "bajty": 64010,
           "sha256": "af8fceaccfdb60b5bd83e5bf06522882f4b1c3279268631e82aee57e1740563e",
-          "pobrano_utc": "2026-11-13T18:45:11Z"
+          "pobrano_utc": "2026-11-13T18:51:48Z"
         }
       ],
       "fragmenty_z_cenami": 7
