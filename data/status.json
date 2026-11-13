@@ -1,6 +1,6 @@
 {
-  "uruchomienie_utc": "2026-11-12T14:00:37Z",
-  "wersja_skryptu": "0.2",
+  "uruchomienie_utc": "2026-11-13T18:43:49Z",
+  "wersja_skryptu": "0.3",
   "zrodla": {
     "pzpm": {
       "GET https://www1.pzpm.org.pl/pl/Elektromobilnosc/eRejestracje": {
@@ -15,7 +15,7 @@
           "http": 200,
           "bajty": 89861,
           "sha256": "5843c2d815859e57293cab2543bf44acdc0ca6174e7f907fa04e731de677d16c",
-          "pobrano_utc": "2026-11-12T14:00:40Z"
+          "pobrano_utc": "2026-11-13T18:43:52Z"
         },
         {
           "plik": "data/raw/pzpm/2026-09_tabele.xlsx",
@@ -23,7 +23,7 @@
           "http": 200,
           "bajty": 209359,
           "sha256": "334394c8cfd7005016268ba26527e893746a1852d24540336418651462964d8a",
-          "pobrano_utc": "2026-11-12T14:00:41Z"
+          "pobrano_utc": "2026-11-13T18:43:54Z"
         },
         {
           "plik": "data/raw/pzpm/2026-09_informacja.pdf",
@@ -31,7 +31,7 @@
           "http": 200,
           "bajty": 242784,
           "sha256": "f541f04870798c1394e05ef107aa6d854caede89cebdc673b6b15c719bc107c3",
-          "pobrano_utc": "2026-11-12T14:00:42Z"
+          "pobrano_utc": "2026-11-13T18:43:55Z"
         },
         {
           "plik": "data/raw/pzpm/2026-10_tabele.xlsx",
@@ -39,7 +39,7 @@
           "http": 200,
           "bajty": 209519,
           "sha256": "b250e1e5507f9fee9b3936550b8a7fa7cfd52c7ab045c3dc235731e4840415f2",
-          "pobrano_utc": "2026-11-12T14:00:43Z"
+          "pobrano_utc": "2026-11-13T18:43:56Z"
         },
         {
           "plik": "data/raw/pzpm/2026-10_informacja.pdf",
@@ -47,7 +47,7 @@
           "http": 200,
           "bajty": 243052,
           "sha256": "c98bf7737c46d17834f39e02c74d7cb3c377d74cf69292776671d45b11b397b4",
-          "pobrano_utc": "2026-11-12T14:00:43Z"
+          "pobrano_utc": "2026-11-13T18:43:57Z"
         }
       ],
       "strony_miesieczne": {
@@ -230,9 +230,176 @@
         "razem_wyliczony": 3443.0
       }
     },
+    "pzpm_soisd": {
+      "GET https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE": {
+        "http": 200,
+        "bajty": 90866,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "GET https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2025": {
+        "http": 200,
+        "bajty": 90866,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "GET https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026": {
+        "http": 200,
+        "bajty": 90866,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "strony_miesieczne": {
+        "2026-01": "https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Styczen-2026r",
+        "2026-02": "https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Luty-2026r",
+        "2026-03": "https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Marzec-2026r",
+        "2026-04": "https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Kwiecien-2026r2",
+        "2026-05": "https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Maj-2026r2",
+        "2026-06": "https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Czerwiec-2026r2",
+        "2026-07": "https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Lipiec-2026r2",
+        "2026-08": "https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Sierpien-2026r2",
+        "2026-09": "https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Wrzesien-2026r3",
+        "2026-10": "https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Pazdziernik-2026r"
+      },
+      "GET https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Wrzesien-2026r3": {
+        "http": 200,
+        "bajty": 90802,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "pliki_2026-09": [
+        "https://www1.pzpm.org.pl/pl/content/download/22890/273974/file/PZPM_SOiSD_09_2026.xlsx"
+      ],
+      "GET https://www1.pzpm.org.pl/pl/content/download/22890/273974/file/PZPM_SOiSD_09_2026.xlsx": {
+        "http": 200,
+        "bajty": 92922,
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      },
+      "pliki": [
+        {
+          "plik": "data/raw/pzpm_soisd/2026-09_SOiSD.xlsx",
+          "url": "https://www1.pzpm.org.pl/pl/content/download/22890/273974/file/PZPM_SOiSD_09_2026.xlsx",
+          "http": 200,
+          "bajty": 92922,
+          "sha256": "04fcf7686647e1e1b9cd3997f79bcdda305dfaa8fcb0efbdd97420da4f9a79a8",
+          "pobrano_utc": "2026-11-13T18:44:07Z"
+        },
+        {
+          "plik": "data/raw/pzpm_soisd/2026-10_SOiSD.xlsx",
+          "url": "https://www1.pzpm.org.pl/pl/content/download/22886/273940/file/PZPM_SOiSD_10_2026.xlsx",
+          "http": 200,
+          "bajty": 92762,
+          "sha256": "7f9a943fff41ea5556a0e5d8f4db25b759e35a611514c114ea6f5ce4f77c4e8f",
+          "pobrano_utc": "2026-11-13T18:44:09Z"
+        }
+      ],
+      "arkusze_2026-09_SOiSD": [
+        {
+          "arkusz": "Tabele zbiorcze i wykresy",
+          "wiersze": 28,
+          "plik": "data/csv/pzpm_soisd/2026-09/Tabele_zbiorcze_i_wykresy.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe ",
+          "wiersze": 99,
+          "plik": "data/csv/pzpm_soisd/2026-09/Samochody_osobowe_.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe INDYW",
+          "wiersze": 73,
+          "plik": "data/csv/pzpm_soisd/2026-09/Samochody_osobowe_INDYW.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe REGON",
+          "wiersze": 73,
+          "plik": "data/csv/pzpm_soisd/2026-09/Samochody_osobowe_REGON.csv"
+        },
+        {
+          "arkusz": "Samochody dostawcze",
+          "wiersze": 81,
+          "plik": "data/csv/pzpm_soisd/2026-09/Samochody_dostawcze.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe i dostawcze",
+          "wiersze": 35,
+          "plik": "data/csv/pzpm_soisd/2026-09/Samochody_osobowe_i_dostawcze.csv"
+        }
+      ],
+      "marki_2026-09": {
+        "XPENG": 2,
+        "BYD": 7,
+        "LEAPMOTOR": 2,
+        "MG": 15,
+        "OMODA": 7,
+        "JAECOO": 3,
+        "CHERY": 8,
+        "ZEEKR": 0,
+        "GEELY": 2,
+        "LYNK & CO": 0,
+        "NIO": 0,
+        "POLESTAR": 0,
+        "TESLA": 2
+      },
+      "GET https://www1.pzpm.org.pl/pl/Rynek-motoryzacyjny/Rejestracje-Pojazdow/OSOBOWE-i-DOSTAWCZE/Rok-2026/Pazdziernik-2026r": {
+        "http": 200,
+        "bajty": 90866,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "pliki_2026-10": [
+        "https://www1.pzpm.org.pl/pl/content/download/22886/273940/file/PZPM_SOiSD_10_2026.xlsx"
+      ],
+      "GET https://www1.pzpm.org.pl/pl/content/download/22886/273940/file/PZPM_SOiSD_10_2026.xlsx": {
+        "http": 200,
+        "bajty": 92762,
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      },
+      "arkusze_2026-10_SOiSD": [
+        {
+          "arkusz": "Tabele zbiorcze i wykresy",
+          "wiersze": 28,
+          "plik": "data/csv/pzpm_soisd/2026-10/Tabele_zbiorcze_i_wykresy.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe ",
+          "wiersze": 99,
+          "plik": "data/csv/pzpm_soisd/2026-10/Samochody_osobowe_.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe INDYW",
+          "wiersze": 73,
+          "plik": "data/csv/pzpm_soisd/2026-10/Samochody_osobowe_INDYW.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe REGON",
+          "wiersze": 73,
+          "plik": "data/csv/pzpm_soisd/2026-10/Samochody_osobowe_REGON.csv"
+        },
+        {
+          "arkusz": "Samochody dostawcze",
+          "wiersze": 81,
+          "plik": "data/csv/pzpm_soisd/2026-10/Samochody_dostawcze.csv"
+        },
+        {
+          "arkusz": "Samochody osobowe i dostawcze",
+          "wiersze": 35,
+          "plik": "data/csv/pzpm_soisd/2026-10/Samochody_osobowe_i_dostawcze.csv"
+        }
+      ],
+      "marki_2026-10": {
+        "XPENG": 2,
+        "BYD": 8,
+        "LEAPMOTOR": 2,
+        "MG": 13,
+        "OMODA": 6,
+        "JAECOO": 2,
+        "CHERY": 4,
+        "ZEEKR": 0,
+        "GEELY": 2,
+        "LYNK & CO": 0,
+        "NIO": 0,
+        "POLESTAR": 0,
+        "TESLA": 1
+      }
+    },
     "cepik": {
       "GET https://api.cepik.gov.pl/slowniki": {
-        "blad": "ConnectTimeout: HTTPSConnectionPool(host='api.cepik.gov.pl', port=443): Max retries exceeded with url: /slowniki (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.cepik.gov.pl', port=443) at 0x708d56a2c380>, 'Connection to api.cepik.gov.pl timed out. (connect timeout=60)'))"
+        "blad": "ConnectTimeout: HTTPSConnectionPool(host='api.cepik.gov.pl', port=443): Max retries exceeded with url: /slowniki (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.cepik.gov.pl', port=443) at 0x7aff154852b0>, 'Connection to api.cepik.gov.pl timed out. (connect timeout=60)'))"
       }
     },
     "orlen_charge": {
@@ -248,7 +415,7 @@
           "http": 200,
           "bajty": 64010,
           "sha256": "af8fceaccfdb60b5bd83e5bf06522882f4b1c3279268631e82aee57e1740563e",
-          "pobrano_utc": "2026-11-12T14:01:45Z"
+          "pobrano_utc": "2026-11-13T18:45:11Z"
         }
       ],
       "fragmenty_z_cenami": 7

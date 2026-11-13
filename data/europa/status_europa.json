@@ -1,6 +1,6 @@
 {
-  "uruchomienie_utc": "2026-11-12T14:01:45Z",
-  "wersja_skryptu": "europa-0.1-sonda",
+  "uruchomienie_utc": "2026-11-13T18:45:11Z",
+  "wersja_skryptu": "europa-0.2",
   "zrodla": {
     "acea": {
       "GET https://www.acea.auto/files/Press_release_car_registrations_October_2026.pdf": {
@@ -20,7 +20,7 @@
           "http": 200,
           "bajty": 356094,
           "sha256": "da39032b31a6588189b3604dbb7ca92975fe5fd908020720a020242be044f723",
-          "pobrano_utc": "2026-11-12T14:01:46Z"
+          "pobrano_utc": "2026-11-13T18:45:12Z"
         },
         {
           "plik": "data/europa/acea/acea_2026-08.pdf",
@@ -28,7 +28,7 @@
           "http": 200,
           "bajty": 331283,
           "sha256": "a86d34d9ec3e0e428f995eaca742b05fb4d4e56343d0e203acb3602a103acba2",
-          "pobrano_utc": "2026-11-12T14:01:47Z"
+          "pobrano_utc": "2026-11-13T18:45:13Z"
         }
       ],
       "tekst_acea_2026-09": {
@@ -54,40 +54,185 @@
       }
     },
     "kba": {
-      "GET https://www.kba.de/DE/Presse/Pressemitteilungen/Fahrzeugzulassungen/2026/pm35_2026_n_08_26_pm_komplett.html": {
+      "GET https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html?yearFilter=2026&monthFilter=10_Oktober": {
         "http": 200,
-        "bajty": 345251,
+        "bajty": 327937,
         "content_type": "text/html;charset=utf-8"
+      },
+      "linki_2026-10": {
+        "fz10": [],
+        "komunikaty": []
+      },
+      "GET https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2026_10.xlsx?__blob=publicationFile": {
+        "http": 200,
+        "bajty": 189631,
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8"
       },
       "pliki": [
         {
-          "plik": "data/europa/kba/pm35_2026_n_08_26_pm_komplett.html",
-          "url": "https://www.kba.de/DE/Presse/Pressemitteilungen/Fahrzeugzulassungen/2026/pm35_2026_n_08_26_pm_komplett.html",
+          "plik": "data/europa/kba/fz10_2026-10.xlsx",
+          "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2026_10.xlsx?__blob=publicationFile",
           "http": 200,
-          "bajty": 345251,
-          "sha256": "fbe5cc8c3a852b14252a7e003431d9a6aeb47fa8d2f32513d9b87e02a1c71c4b",
-          "pobrano_utc": "2026-11-12T14:01:49Z"
+          "bajty": 189631,
+          "sha256": "2c39559bcd928cefb27204e1d20d689da58c3a5c8154bb71856ffdaebcc7bff0",
+          "pobrano_utc": "2026-11-13T18:45:16Z"
         },
         {
-          "plik": "data/europa/kba/pm34_2026_Antriebe_07_26_komplett.html",
-          "url": "https://www.kba.de/DE/Presse/Pressemitteilungen/AlternativeAntriebe/2026/pm34_2026_Antriebe_07_26_komplett.html",
+          "plik": "data/europa/kba/fz10_2026-09.xlsx",
+          "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2026_09.xlsx?__blob=publicationFile",
           "http": 200,
-          "bajty": 371255,
-          "sha256": "1ee57a397c29c65981171d44809219d755a927050270da70ac4147e519982ed7",
-          "pobrano_utc": "2026-11-12T14:01:50Z"
+          "bajty": 187353,
+          "sha256": "bd5eb1f176fcf3d28a93d658a1937d0c97e21a62114b03541d0e51655be6947d",
+          "pobrano_utc": "2026-11-13T18:45:18Z"
+        },
+        {
+          "plik": "data/europa/kba/fz10_2026-08.xlsx",
+          "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2026_08.xlsx?__blob=publicationFile",
+          "http": 200,
+          "bajty": 185785,
+          "sha256": "68e7fd80810b83bd0d8a5c8f857b3cbcda8b1e7333804634d9831edcfb1a45a9",
+          "pobrano_utc": "2026-11-13T18:45:19Z"
         }
       ],
-      "tabele_pm35_2026_n_08_26_pm_komplett": 3,
-      "GET https://www.kba.de/DE/Presse/Pressemitteilungen/AlternativeAntriebe/2026/pm34_2026_Antriebe_07_26_komplett.html": {
+      "arkusze_fz10_2026-10": [
+        {
+          "arkusz": "Deckblatt",
+          "wiersze": 16,
+          "plik": "data/europa/kba/fz10_2026-10/Deckblatt.csv"
+        },
+        {
+          "arkusz": "Impressum",
+          "wiersze": 26,
+          "plik": "data/europa/kba/fz10_2026-10/Impressum.csv"
+        },
+        {
+          "arkusz": "Inhaltsverzeichnis",
+          "wiersze": 28,
+          "plik": "data/europa/kba/fz10_2026-10/Inhaltsverzeichnis.csv"
+        },
+        {
+          "arkusz": "FZ 10.1",
+          "wiersze": 566,
+          "plik": "data/europa/kba/fz10_2026-10/FZ_10_1.csv"
+        }
+      ],
+      "marki_2026-10": {
+        "XPENG": 2,
+        "BYD": 2,
+        "LEAPMOTOR": 2,
+        "MG": 2,
+        "OMODA": 2,
+        "JAECOO": 2,
+        "CHERY": 2,
+        "ZEEKR": 2,
+        "GEELY": 2,
+        "LYNK & CO": 2,
+        "NIO": 2,
+        "POLESTAR": 2,
+        "TESLA": 2
+      },
+      "GET https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html?yearFilter=2026&monthFilter=09_September": {
         "http": 200,
-        "bajty": 371255,
+        "bajty": 327947,
         "content_type": "text/html;charset=utf-8"
       },
-      "tabele_pm34_2026_Antriebe_07_26_komplett": 6,
-      "strony_odwiedzone": [
-        "https://www.kba.de/DE/Presse/Pressemitteilungen/AlternativeAntriebe/2026/pm34_2026_Antriebe_07_26_komplett.html",
-        "https://www.kba.de/DE/Presse/Pressemitteilungen/Fahrzeugzulassungen/2026/pm35_2026_n_08_26_pm_komplett.html"
-      ]
+      "linki_2026-09": {
+        "fz10": [],
+        "komunikaty": []
+      },
+      "GET https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2026_09.xlsx?__blob=publicationFile": {
+        "http": 200,
+        "bajty": 187353,
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8"
+      },
+      "arkusze_fz10_2026-09": [
+        {
+          "arkusz": "Deckblatt",
+          "wiersze": 16,
+          "plik": "data/europa/kba/fz10_2026-09/Deckblatt.csv"
+        },
+        {
+          "arkusz": "Impressum",
+          "wiersze": 26,
+          "plik": "data/europa/kba/fz10_2026-09/Impressum.csv"
+        },
+        {
+          "arkusz": "Inhaltsverzeichnis",
+          "wiersze": 28,
+          "plik": "data/europa/kba/fz10_2026-09/Inhaltsverzeichnis.csv"
+        },
+        {
+          "arkusz": "FZ 10.1",
+          "wiersze": 555,
+          "plik": "data/europa/kba/fz10_2026-09/FZ_10_1.csv"
+        }
+      ],
+      "marki_2026-09": {
+        "XPENG": 2,
+        "BYD": 2,
+        "LEAPMOTOR": 2,
+        "MG": 2,
+        "OMODA": 2,
+        "JAECOO": 2,
+        "CHERY": 2,
+        "ZEEKR": 2,
+        "GEELY": 2,
+        "LYNK & CO": 2,
+        "NIO": 2,
+        "POLESTAR": 2,
+        "TESLA": 2
+      },
+      "GET https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html?yearFilter=2026&monthFilter=08_August": {
+        "http": 200,
+        "bajty": 327932,
+        "content_type": "text/html;charset=utf-8"
+      },
+      "linki_2026-08": {
+        "fz10": [],
+        "komunikaty": []
+      },
+      "GET https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2026_08.xlsx?__blob=publicationFile": {
+        "http": 200,
+        "bajty": 185785,
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8"
+      },
+      "arkusze_fz10_2026-08": [
+        {
+          "arkusz": "Deckblatt",
+          "wiersze": 16,
+          "plik": "data/europa/kba/fz10_2026-08/Deckblatt.csv"
+        },
+        {
+          "arkusz": "Impressum",
+          "wiersze": 26,
+          "plik": "data/europa/kba/fz10_2026-08/Impressum.csv"
+        },
+        {
+          "arkusz": "Inhaltsverzeichnis",
+          "wiersze": 28,
+          "plik": "data/europa/kba/fz10_2026-08/Inhaltsverzeichnis.csv"
+        },
+        {
+          "arkusz": "FZ 10.1",
+          "wiersze": 552,
+          "plik": "data/europa/kba/fz10_2026-08/FZ_10_1.csv"
+        }
+      ],
+      "marki_2026-08": {
+        "XPENG": 2,
+        "BYD": 2,
+        "LEAPMOTOR": 2,
+        "MG": 2,
+        "OMODA": 2,
+        "JAECOO": 2,
+        "CHERY": 2,
+        "ZEEKR": 2,
+        "GEELY": 2,
+        "LYNK & CO": 2,
+        "NIO": 2,
+        "POLESTAR": 2,
+        "TESLA": 2
+      }
     }
   }
 }

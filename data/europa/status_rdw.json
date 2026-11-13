@@ -1,5 +1,5 @@
 {
- "uruchomienie_utc": "2026-11-12T14:01:51Z",
+ "uruchomienie_utc": "2026-11-13T18:45:20Z",
  "wersja_skryptu": "europa_marki 0.1",
  "kraj": "NL",
  "zrodlo": "RDW Open Data",
@@ -31,7 +31,7 @@
   },
   "2026-09": {
    "okres": "2026-09",
-   "nowe_osobowe": 36080,
+   "nowe_osobowe": 36081,
    "bev": 19055,
    "udzial_bev": 0.5281,
    "bez_rekordu_paliwa": 0,
@@ -58,8 +58,8 @@
    "okres": "2026-09",
    "offset": 0,
    "http": 200,
-   "bajty": 1397497,
-   "wiersze": 36080
+   "bajty": 1397537,
+   "wiersze": 36081
   },
   {
    "zrodlo": "paliwa",
