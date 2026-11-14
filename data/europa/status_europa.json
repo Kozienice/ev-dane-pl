@@ -1,5 +1,5 @@
 {
-  "uruchomienie_utc": "2026-11-13T18:51:48Z",
+  "uruchomienie_utc": "2026-11-14T12:18:22Z",
   "wersja_skryptu": "europa-0.2",
   "zrodla": {
     "acea": {
@@ -20,7 +20,7 @@
           "http": 200,
           "bajty": 356094,
           "sha256": "da39032b31a6588189b3604dbb7ca92975fe5fd908020720a020242be044f723",
-          "pobrano_utc": "2026-11-13T18:51:49Z"
+          "pobrano_utc": "2026-11-14T12:18:23Z"
         },
         {
           "plik": "data/europa/acea/acea_2026-08.pdf",
@@ -28,7 +28,7 @@
           "http": 200,
           "bajty": 331283,
           "sha256": "a86d34d9ec3e0e428f995eaca742b05fb4d4e56343d0e203acb3602a103acba2",
-          "pobrano_utc": "2026-11-13T18:51:50Z"
+          "pobrano_utc": "2026-11-14T12:18:24Z"
         }
       ],
       "tekst_acea_2026-09": {
@@ -75,7 +75,7 @@
           "http": 200,
           "bajty": 189631,
           "sha256": "2c39559bcd928cefb27204e1d20d689da58c3a5c8154bb71856ffdaebcc7bff0",
-          "pobrano_utc": "2026-11-13T18:51:53Z"
+          "pobrano_utc": "2026-11-14T12:18:27Z"
         },
         {
           "plik": "data/europa/kba/fz10_2026-09.xlsx",
@@ -83,7 +83,7 @@
           "http": 200,
           "bajty": 187353,
           "sha256": "bd5eb1f176fcf3d28a93d658a1937d0c97e21a62114b03541d0e51655be6947d",
-          "pobrano_utc": "2026-11-13T18:51:55Z"
+          "pobrano_utc": "2026-11-14T12:18:29Z"
         },
         {
           "plik": "data/europa/kba/fz10_2026-08.xlsx",
@@ -91,7 +91,7 @@
           "http": 200,
           "bajty": 185785,
           "sha256": "68e7fd80810b83bd0d8a5c8f857b3cbcda8b1e7333804634d9831edcfb1a45a9",
-          "pobrano_utc": "2026-11-13T18:51:56Z"
+          "pobrano_utc": "2026-11-14T12:18:30Z"
         }
       ],
       "arkusze_fz10_2026-10": [
